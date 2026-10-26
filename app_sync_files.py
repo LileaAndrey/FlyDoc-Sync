@@ -62,7 +62,13 @@ def browse_destination():
 
 def extract_vehicle_info(folder_name):
 
-    parts = folder_name.upper().split()
+    normalized = (
+        folder_name.upper()
+        .replace("_", " ")
+        .replace("-", " ")
+    )
+
+    parts = normalized.upper().split()
 
     body = None
     stage = None
